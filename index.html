@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SkyGodzVerification</title>
+        <script>
+            window.onload = () => {
+                const parallax = document.querySelectorAll('.parallax')
+                parallax.forEach(parallax_container => {
+                    if (parallax_container) {
+                        const items = parallax_container.querySelectorAll('*')
+                    
+                        const speed = 0.05
+                        let positionX = 0, positionY = 0
+                        let cordXprocent = 0, cordYprocent = 0
+                    
+                        const setMouseParallax = () => {
+                            const distX = cordXprocent - positionX
+                            const distY = cordYprocent - positionY
+
+                            positionX = positionX + (distX * speed)
+                            positionY = positionY + (distY * speed)
+                        
+                            items.forEach(item => {
+                                const item_speed = 50
+                                item.style.cssText = `transform: translate(${positionX / parseInt(item_speed)}%, ${positionY / parseInt(item_speed)}%);`
+                            })
+
+                            window.requestAnimationFrame(setMouseParallax)
+                        }
+                        setMouseParallax()
+                    
+                        document.addEventListener('mousemove', function(e) {
+                            const parallaxWidth = parallax_container.offsetWidth
+                            const parallaxHeight = parallax_container.offsetHeight
+                        
+                            const cordX = e.pageX - parallaxWidth / 2
+                            const cordY = e.pageY - parallaxHeight / 2
+                        
+                            cordXprocent = cordX / parallaxWidth * 100
+                            cordYprocent = cordY / parallaxHeight * 100 
+                        })
+                    }
+                })
+
+            
+            }
+        </script>
+        <style>
+            @font-face {
+                font-style: normal;
+                font-weight: 400;
+                font-family: "Minecraft";
+                src: local(''),
+                    url("../MinecraftRegular-Bmg3.otf") format('woff2'),
+                    url("../MinecraftRegular-Bmg3.otf") format('woff')
+            }
+
+            .button {
+            border: none;
+            color: rgb(255, 255, 255);
+            padding: 25px 64px;
+            position: fixed;
+            left: 39%;
+            top: 60%;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 0px 0px;
+            cursor: pointer;
+  }
+
+            .background {
+                 background-repeat: none;
+                 background-size: cover;
+                 padding: 0%;
+  }
+
+            .centr__block {
+                position: fixed; /* or absolute */
+                top: 50%;
+                left: 50%;
+                
+            }
+
+            .skyblock__text {
+                height: auto;
+                width: auto;
+                margin: -200px 0 0 -275px;
+            }
+
+            .hr {
+                height: 150px;
+                
+            }
+
+            
+
+        </style>
+    
+    <body>
+        <div class="centr__block">
+            <div class="parallax">
+                <img src="https://cdn.discordapp.com/attachments/1066801432034037801/1067074605229023232/ef241cb305263233474d7595faff066f50de1de4da39a3ee5e6b4b0d3255bfef95601890afd80709da39a3ee5e6b4b0d3255bfef95601890afd80709b884493279422f3ccb954d99886a5562.png" class="skyblock__text" style="transform: translate(7.53548%, 0.616667%);">
+            </div>
+            
+            <div class="hr"></div>
+            <div class="verify__buttondiv">
+
+                    
+                    <a href="http://gg.gg/SkyGodVerification">
+                <img class="button" src="https://cdn.discordapp.com/attachments/1066801432034037801/1067090314034155660/image.png">
+            </a>
+
+            </div>
+            
+        </div>
+    
+
+</body>
+</html>
+
+<Body class="background" background="https://cdn.discordapp.com/attachments/1066801432034037801/1066825234398846976/2831651.png"></Body>
